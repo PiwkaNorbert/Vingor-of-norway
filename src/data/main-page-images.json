@@ -1,0 +1,11 @@
+[
+  { "id": 1, "src": "landing-1.jpg", "alt": "landing-1" },
+  { "id": 2, "src": "landing-2.jpg", "alt": "landing-2" },
+  { "id": 3, "src": "landing-3.jpg", "alt": "landing-3" },
+  { "id": 4, "src": "landing-4.jpg", "alt": "landing-4" },
+  { "id": 5, "src": "landing-5.jpg", "alt": "landing-5" },
+  { "id": 6, "src": "landing-6.jpg", "alt": "landing-6" },
+  { "id": 7, "src": "landing-7.jpg", "alt": "landing-7" },
+  { "id": 8, "src": "landing-8.jpg", "alt": "landing-8" },
+  { "id": 9, "src": "landing-9.jpg", "alt": "landing-9" }
+]
