@@ -39,6 +39,7 @@
 		transition-delay: 0ms;
 	}
 
+
 </style>
 <BaseLayout pageTitle={pageTitle}>
 
@@ -47,7 +48,7 @@
       <div class="banner">
         <div class="">
           <h3 class="pretitle">Vingor of norway</h3>
-          <h1 class="title">Experience<br><mark> the Warmth and Comfort</mark></h1>
+          <h1 class="title">Experience the<br><mark>Warmth and Comfort</mark></h1>
           <p class="text">Indulge in the luxurious warmth and comfort of our premium wool blankets and products, crafted with the finest natural fibers. Experience the timeless elegance of wool while embracing sustainable, eco-friendly living. Elevate your cozy moments with our high-quality wool offerings.</p>
           <a class="button" href="https://www.vingtor.no/">Buy Now</a>
 
@@ -88,11 +89,11 @@ const interval = 5000;
 let autoPlay = true;
 const slides = document.querySelector("[data-slides]");
 // set autoPlay tto true then the page loads
-if (autoPlay) {
-  const activeSlide = slides?.querySelector("[data-active]");
+if (slides) {
+  const activeSlide = slides.querySelector("[data-active]");
   let slideIndex = [...slides.children].indexOf(activeSlide);
 
-  const intervalId = setInterval(() => {
+  let intervalId = setInterval(() => {
     const offset = 1;
     let newIndex = slideIndex + offset;
     if (newIndex < 0) newIndex = slides.children.length - 1;
