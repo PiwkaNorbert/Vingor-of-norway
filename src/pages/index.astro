@@ -1,128 +1,128 @@
 ---
   import BaseLayout from '../layouts/BaseLayout.astro';
-  const pageTitle = 'Home';
+	import { getCollection } from 'astro:content';
 	import images from "../data/main-page-images.json"
----
-<style>
-	.carousel {
-		display: flex;
-		width: 100%;
-		height: 400px
-		position: relative;
-		
-	}
-	.slide {
-	width: 100%;
-	height: 100%;
-  opacity: 0;
-  transition: 200ms opacity ease-in-out;
-  transition-delay: 200ms;
-	display: none;
+	import DiscoverMoreCard from '../components/DiscoverMoreCard.astro';
+// import { Image } from 'astro:assets';
+
+  const pageTitle = 'Home';
+	const discoverMoreData = await getCollection('discover-more');
+	console.log(discoverMoreData);
 	
-}
-
-	.slide > img {
-		width: 100%;
-		height: 100%;
-		flex-shrink: 0;
-		flex-grow: 0;
-		display: block;
-		object-fit: cover;
-		border: 2px solid var(--color-primary);
-		border-radius: 0.375rem;
-		transition: all 0.3s ease-in-out;
-	}
-
-	.slide[data-active] {
-		opacity: 1;
-		z-index: 1;
-		transition-delay: 0ms;
-	}
 
 
-</style>
+---
+
 <BaseLayout pageTitle={pageTitle}>
 
   <section class="section">
-    <div class="container">
-      <div class="banner">
-        <div class="">
+    <div class="container gap-20 flex flex-col">
+      <div class="banner relative grid md:grid-cols-2 gap-10 items-center">
+        <div class="w-full">
           <h3 class="pretitle">Vingor of norway</h3>
           <h1 class="title">Experience the<br><mark>Warmth and Comfort</mark></h1>
           <p class="text">Indulge in the luxurious warmth and comfort of our premium wool blankets and products, crafted with the finest natural fibers. Experience the timeless elegance of wool while embracing sustainable, eco-friendly living. Elevate your cozy moments with our high-quality wool offerings.</p>
           <a class="button" href="https://www.vingtor.no/">Buy Now</a>
 
         </div>
-				<div class="carousel">
-					{images.map((image, index) => (
-						<div
-							class="slide"
-							data-active={index === 0 ? true : undefined}
-						>
-							<img src={image.src} alt={image.alt} />
-						</div>
-					))}
+				<div class="w-full h-[600px] ">
+					<div
+						class="w-full h-full flex relative "
+						data-slides
+					>
+						{images.map((image, index) => (
+					
+							<a class="slide absolute opacity-0 h-full w-full transition-all duration-1000 ease-in-out" href={image.link} 
+							data-active={index === 0}
+								>
+								<img
+									class='h-full w-full rounded-md object-contain' 
+									src={image.src}
+									alt={image.alt}
+
+								/>
+							</a>
+						))}
+					</div>
 				</div>
 
       </div>
-			<!-- <section: about> -->
+			<!-- <section: discover> -->
 				<!-- suck -->
-				<div>
-					<h2 class="title">About</h2>
-<!-- fb -->
-					<svg width=20 id="e0s15cydyhr11" viewBox="0 0 36 42" shape-rendering="geometricPrecision" text-rendering="geometricPrecision"><path id="e0s15cydyhr12" d="M20.250000,18.380000L20.250000,13.880000C20.250000,12.637359,21.257359,11.630000,22.500000,11.630000L24.750000,11.630000L24.750000,6L20.250000,6C16.522078,6,13.500000,9.022078,13.500000,12.750000L13.500000,18.380000L9,18.380000L9,24L13.500000,24L13.500000,42L20.250000,42L20.250000,24L24.750000,24L27,18.380000Z" fill="currentColor" stroke="none" stroke-width="1"></path></svg>
-<!-- ig -->
-					<svg width=20 id="el4esl6v8dc1" viewBox="0 0 36 42" shape-rendering="geometricPrecision" text-rendering="geometricPrecision"><g id="el4esl6v8dc2"><path id="el4esl6v8dc3" d="M35.870000,16.600000C35.829954,15.107778,35.535737,13.633311,35,12.240000C34.069648,9.840007,32.176417,7.939523,29.780000,7C28.384734,6.475074,26.910420,6.191032,25.420000,6.160000C23.500000,6.060000,22.890000,6,18,6C13.110000,6,12.510000,6,10.600000,6.110000C9.106614,6.156436,7.632110,6.457425,6.240000,7C5.043470,7.443821,3.958219,8.143433,3.060000,9.050000C2.151817,9.948856,1.449046,11.033715,1,12.230000C0.475074,13.625266,0.191032,15.099580,0.160000,16.590000C0.060000,18.510000,0,19.130000,0,24C0,28.870000,0,29.490000,0.110000,31.400000C0.155302,32.896760,0.456310,34.374742,1,35.770000C1.937200,38.170208,3.838006,40.067386,6.240000,41C7.635266,41.524926,9.109580,41.808968,10.600000,41.840000C12.520000,41.920000,13.130000,41.950000,18,41.950000C22.870000,41.950000,23.490000,41.950000,25.400000,41.840000C26.890482,41.809550,28.364893,41.525489,29.760000,41C32.162681,40.068442,34.063854,38.170898,35,35.770000C35.524739,34.374681,35.808775,32.900400,35.840000,31.410000C35.920000,29.490000,35.950000,28.880000,35.950000,24.010000C35.950000,19.140000,36,18.510000,35.870000,16.600000ZM32.630000,31.270000C32.613969,32.408062,32.400815,33.534735,32,34.600000C31.392468,36.155761,30.163965,37.387888,28.610000,38C27.543967,38.396819,26.417414,38.606567,25.280000,38.620000C23.380000,38.700000,22.820000,38.730000,18.020000,38.730000C13.220000,38.730000,12.650000,38.730000,10.760000,38.620000C9.619142,38.608527,8.488971,38.398735,7.420000,38C6.641521,37.713492,5.937472,37.255518,5.360000,36.660000C4.760062,36.086136,4.295479,35.385846,4,34.610000C3.603181,33.543967,3.393433,32.417414,3.380000,31.280000C3.300000,29.380000,3.270000,28.820000,3.270000,24.020000C3.270000,19.220000,3.270000,18.650000,3.380000,16.760000C3.392629,15.622507,3.602403,14.495818,4,13.430000C4.287232,12.649476,4.748978,11.944885,5.350000,11.370000C5.931259,10.762454,6.642303,10.294123,7.430000,10C8.496087,9.603375,9.622605,9.393633,10.760000,9.380000C12.660000,9.300000,13.220000,9.270000,18.020000,9.270000C22.820000,9.270000,23.390000,9.270000,25.280000,9.380000C26.417474,9.392831,27.544128,9.602598,28.610000,10C29.388633,10.286200,30.092747,10.744216,30.670000,11.340000C31.264333,11.928212,31.718866,12.642479,32,13.430000C32.396625,14.496087,32.606367,15.622605,32.620000,16.760000C32.700000,18.660000,32.730000,19.220000,32.730000,24.020000C32.730000,28.820000,32.720000,29.370000,32.630000,31.270000Z" fill="currentColor" stroke="none" stroke-width="1"></path><path id="el4esl6v8dc4" d="M18,14.770000C12.903717,14.775521,8.776322,18.910375,8.780002,24.006659C8.783682,29.102944,12.917044,33.231832,18.013330,33.229994C23.109615,33.228155,27.239997,29.096286,27.240000,24C27.240001,21.550318,26.266185,19.201115,24.533061,17.469866C22.799937,15.738618,20.449680,14.767346,18,14.770000ZM18,30C14.686292,30,12,27.313708,12,24C12,20.686292,14.686292,18,18,18C21.313708,18,24,20.686292,24,24C24,27.313708,21.313708,30,18,30Z" fill="currentColor" stroke="none" stroke-width="1"></path><path id="el4esl6v8dc5" d="M29.760000,14.410000C29.759987,15.596108,28.799424,16.558144,27.613318,16.559974C26.427212,16.561805,25.463684,15.602738,25.460010,14.416636C25.456337,13.230534,26.413905,12.265517,27.600000,12.260000C28.171946,12.257340,28.721380,12.482682,29.126748,12.886174C29.532117,13.289666,29.760006,13.838048,29.760000,14.410000Z" fill="currentColor" stroke="none" stroke-width="1"></path></g></svg>
-					<!-- yt -->
-					<svg width=20 id="e2kessfi8jrw1" viewBox="0 0 36 42" shape-rendering="geometricPrecision" text-rendering="geometricPrecision"><path id="e2kessfi8jrw2" d="M34.470000,19.690000C33.470000,17.950000,32.470000,17.630000,30.280000,17.510000C28.090000,17.390000,22.700000,17.310000,18,17.310000C13.300000,17.310000,7.870000,17.370000,5.720000,17.510000C3.570000,17.650000,2.500000,17.950000,1.520000,19.690000C0.540000,21.430000,0,24.410000,0,29.670000L0,29.670000C0,34.910000,0.520000,37.920000,1.520000,39.670000C2.520000,41.420000,3.520000,41.720000,5.720000,41.870000C7.920000,42.020000,13.300000,42.070000,18,42.070000C22.700000,42.070000,28.120000,42,30.270000,41.870000C32.420000,41.740000,33.490000,41.410000,34.460000,39.670000C35.430000,37.930000,36,34.930000,36,29.690000L36,29.690000C36,24.410000,35.490000,21.430000,34.470000,19.690000ZM13.470000,36.430000L13.470000,22.930000L24.720000,29.680000Z" fill="currentColor" stroke="none" stroke-width="1"></path></svg>
-			<!-- </section: about> -->
+				<div class="grid justify-center md:justify-center gap-10 items-center">
+					<h2 class="title capitalize mx-auto w-full">Discover More</h2>
+
+					<div class="grid grid-cols-1 mx-auto md:mx-0 md:grid-cols-3 md:justify-between gap-8">
+						{discoverMoreData.map((card)=> <DiscoverMoreCard card={card} />)}
+					</div>
+
+
+				</div>
+
+
+			
+			<!-- </section: discover> -->
     </div>
   </section>
   
 </BaseLayout>
+<style>
+	.carousel {
+		display: flex;
+		width: 100%;
+		height: 400px;
+		position: relative;
+		
+	}
 
-				<!-- make an image Carousel with an automatic slideshow with css and plain javascript that maps over an image array, and changes the image every 5 seconds thats a value in consts -->
-
-<script>
-// <!-- make an image Carousel with an automatic slideshow with css and plain javascript that maps over an image array, and changes the image every 5 seconds thats a value in consts -->
-const interval = 5000;
-let autoPlay = true;
-const slides = document.querySelector("[data-slides]");
-// set autoPlay tto true then the page loads
-if (slides) {
-  const activeSlide = slides.querySelector("[data-active]");
-  let slideIndex = [...slides.children].indexOf(activeSlide);
-
-  let intervalId = setInterval(() => {
-    const offset = 1;
-    let newIndex = slideIndex + offset;
-    if (newIndex < 0) newIndex = slides.children.length - 1;
-    if (newIndex >= slides.children.length) newIndex = 0;
-
-    slides.children[newIndex].dataset.active = true;
-    delete activeSlide.dataset.active;
-
-    slideIndex = newIndex;
-  }, interval);
-
-  // Stop the interval when the mouse is over the slides
-  slides.addEventListener("mouseover", () => {
-    clearInterval(intervalId);
-  });
-
-  // Resume the interval when the mouse leaves the slides
-  slides.addEventListener("mouseout", () => {
-    intervalId = setInterval(() => {
-      const offset = 1;
-      let newIndex = slideIndex + offset;
-      if (newIndex < 0) newIndex = slides.children.length - 1;
-      if (newIndex >= slides.children.length) newIndex = 0;
-
-      slides.children[newIndex].dataset.active = true;
-      delete activeSlide.dataset.active;
-
-      slideIndex = newIndex;
-    }, interval);
-  });
+	.slide[data-active] {
+  opacity: 1;
+  z-index: 1;
+  transition-delay: 0ms;
 }
+
+</style>
+<script>
+const slides = document.querySelector<HTMLDivElement>("[data-slides]");
+	let activeIndex = 0;
+	const interval = 5000;
+	let intervalId: number | null = null;
+	
+	if (slides) {
+	const startInterval = () => {
+    intervalId = setInterval(() => {
+			activeIndex = (activeIndex + 1) % slides.children.length;
+		if (activeIndex === 0) {
+			slides.children[slides.children.length - 1].removeAttribute("data-active");
+			slides.children[0].setAttribute("data-active", "true");
+		} else {
+			slides.children[activeIndex - 1].removeAttribute("data-active");
+			slides.children[activeIndex].setAttribute("data-active", "true");
+		}
+    }, interval);
+  };
+	
+  const stopInterval = () => {
+    if (intervalId) {
+      clearInterval(intervalId);
+      intervalId = null;
+    }
+  };
+
+  const observer = new IntersectionObserver(entries => {
+		console.log(entries[0].isIntersecting);
+    if (entries[0].isIntersecting) {
+      startInterval();
+    } else {
+      stopInterval();
+    }
+  });
+
+  observer.observe(slides);
+
+  slides.addEventListener("mouseover", stopInterval);
+  slides.addEventListener("mouseout", startInterval);
+
+}
+
 </script>

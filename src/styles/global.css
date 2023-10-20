@@ -1,10 +1,11 @@
+/* @import "https://unpkg.com/open-props"; */
+/* @import "https://unpkg.com/open-props/normalize.min.css"; */
 :root {
   --color-primary: #da3654;
   --color-text: #000;
-  --color-text-2: #3c4856c2;
   --color-bg: #fff;
+  --color-text-2: #3c4856c2;
 }
-
 @font-face {
   font-family: "Recoleta";
   src: url("https://bejamas.io/fonts/recoleta/Recoleta-SemiBold--subset.woff2")
@@ -45,10 +46,23 @@ body {
   font-weight: bold;
 }
 
-.banner {
+/* .banner {
   display: flex;
   gap: 2rem;
   justify-content: space-between;
+} */
+
+.meta {
+  display: flex;
+  align-items: center;
+  gap: var(--size-2);
+  > img {
+    aspect-ratio: 1/1;
+    object-fit: cover;
+  }
+  > * {
+    font-size: var(--font-size-0);
+  }
 }
 
 .pretitle {
@@ -88,7 +102,8 @@ mark {
 
 .button {
   background-color: #da3654;
-  /* background: linear-gradient(90deg, #da3654 0, #eb5295); */
+  background: linear-gradient(90deg, #da3654 0, #eb5295);
+  border-radius: 8px;
   color: #fff;
   padding: 0.8611rem 1.55rem;
   -webkit-text-decoration: none;
@@ -102,12 +117,6 @@ mark {
   z-index: 1;
   font-weight: 600;
   font-size: 1.125rem;
-}
-
-.banner img {
-  display: block;
-  max-width: 670px;
-  width: 100%;
 }
 
 .blog-section {
@@ -180,7 +189,4 @@ mark {
 .blog a {
   color: var(--color-primary);
   text-decoration: none;
-}
-
-.faq-container {
 }

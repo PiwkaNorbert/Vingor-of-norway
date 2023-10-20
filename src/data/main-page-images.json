@@ -1,11 +1,62 @@
 [
-  { "id": 1, "src": "landing-1.jpg", "alt": "landing-1" },
-  { "id": 2, "src": "landing-2.jpg", "alt": "landing-2" },
-  { "id": 3, "src": "landing-3.jpg", "alt": "landing-3" },
-  { "id": 4, "src": "landing-4.jpg", "alt": "landing-4" },
-  { "id": 5, "src": "landing-5.jpg", "alt": "landing-5" },
-  { "id": 6, "src": "landing-6.jpg", "alt": "landing-6" },
-  { "id": 7, "src": "landing-7.jpg", "alt": "landing-7" },
-  { "id": 8, "src": "landing-8.jpg", "alt": "landing-8" },
-  { "id": 9, "src": "landing-9.jpg", "alt": "landing-9" }
+  {
+    "id": 1,
+    "src": "landing-1.jpg",
+    "alt": "landing-1",
+    "link": "https://www.vingtor.no/products/varoy4"
+  },
+  {
+    "id": 2,
+    "src": "landing-2.jpg",
+    "alt": "landing-2",
+    "link": "https://www.vingtor.no/products/pledd-skrik"
+  },
+  {
+    "id": 3,
+    "src": "landing-3.jpg",
+    "alt": "landing-3",
+    "link": "https://www.vingtor.no/products/barnepledd"
+  },
+  {
+    "id": 4,
+    "src": "landing-4.jpg",
+    "alt": "landing-4",
+    "link": "https://www.vingtor.no/products/pledd-oseberg-130-x-200-cm-inkl-frynser"
+  },
+  {
+    "id": 5,
+    "src": "landing-5.jpg",
+    "alt": "landing-5",
+    "link": "https://www.vingtor.no/products/nordlyspledd3"
+  },
+  {
+    "id": 6,
+    "src": "landing-6.jpg",
+    "alt": "landing-6",
+    "link": "https://www.vingtor.no/products/grieg"
+  },
+  {
+    "id": 7,
+    "src": "landing-7.jpg",
+    "alt": "landing-7",
+    "link": "https://www.vingtor.no/products/pledd-oseberg-130-x-200-cm-inkl-frynser"
+  },
+  {
+    "id": 8,
+    "src": "landing-8.jpg",
+    "alt": "landing-8",
+    "link": "https://www.vingtor.no/products/putetrekk-reinsdyr---reindeer45-45-cm"
+  },
+  {
+    "id": 9,
+    "src": "landing-9.jpg",
+    "alt": "landing-9",
+    "link": "https://www.vingtor.no/products/trekopp-elg"
+  },
+  {
+    "id": 10,
+    "src": "landing-10.jpg",
+    "alt": "landing-10",
+    "link": "https://www.vingtor.no/products/sitteunderlag-katt"
+  }
 ]

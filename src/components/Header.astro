@@ -3,19 +3,6 @@
 
 ---
 <style>
-  .container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    align-items: center;
-    gap: 2rem;
-  }
-  
-  .logo img {
-    display: block;
-    max-width: 12.3rem;
-    height: auto;
-  }
 
   nav {
     display: flex;
@@ -96,8 +83,9 @@
 
 </style>
 <header>
-  <div class="container">
-    <a class="logo" aria-label="Bejamas Home" href="/"><img src="Vingtor_logo.jpg" alt="Vingtor" /></a>
+  <div class="flex gap-2 flex-col items-center justify-center">
+    <a class="block max-w-[12.3rem] h-auto pt-8" 
+    aria-label="Bejamas Home" href="/"><img src="Vingtor_logo.jpg" alt="Vingtor" /></a>
     <nav>
       <a href="/">Home</a>
       <a href="https://www.vingtor.no/">products</a>
