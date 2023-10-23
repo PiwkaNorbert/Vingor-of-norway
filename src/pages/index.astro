@@ -3,28 +3,24 @@
 	import { getCollection } from 'astro:content';
 	import images from "../data/main-page-images.json"
 	import DiscoverMoreCard from '../components/DiscoverMoreCard.astro';
-// import { Image } from 'astro:assets';
 
   const pageTitle = 'Home';
 	const discoverMoreData = await getCollection('discover-more');
-	console.log(discoverMoreData);
-	
-
 
 ---
 
 <BaseLayout pageTitle={pageTitle}>
 
   <section class="section">
-    <div class="container gap-20 flex flex-col">
-      <div class="banner relative grid md:grid-cols-2 gap-10 items-center">
-        <div class="w-full">
+    <div class="container  flex flex-col">
+      <div class="banner relative grid md:grid-cols-2  items-center">
+        <div class="w-full place-self-start">
           <h3 class="pretitle">Vingor of norway</h3>
-          <h1 class="mb-10 text-gray-700  text-5xl/[1.1] font-semibold md:text-6xl/[1.1] lg:text-7xl/[1.1]">Experience the<br><mark>Warmth and Comfort</mark></h1>
+          <!-- <h1 class="mb-10 text-gray-700  text-4xl/[1.1] font-semibold md:text-5xl/[1.1] lg:text-6xl/[1.1]">Experience the<br><mark>Warmth and Comfort</mark></h1> -->
           <p class="text">Indulge in the luxurious warmth and comfort of our premium wool blankets and products, crafted with the finest natural fibers. Experience the timeless elegance of wool while embracing sustainable, eco-friendly living. Elevate your cozy moments with our high-quality wool offerings.</p>
           <a class="button" href="https://www.vingtor.no/">Buy Now</a>
-
         </div>
+
 				<div class="w-full h-[600px] ">
 					<div
 						class="w-full h-full flex relative "
@@ -39,6 +35,8 @@
 									class='h-full w-full rounded-md object-contain' 
 									src={image.src}
 									alt={image.alt}
+									width={300}
+									loading='lazy'
 
 								/>
 							</a>
@@ -48,7 +46,6 @@
 
       </div>
 			<!-- <section: discover> -->
-				<!-- suck -->
 				<div class="grid justify-center md:justify-center gap-10 items-center">
 					<h2 class="text-4xl/[1.1] text-center text-gray-700 font-semibold md:text-5xl/[1.1] lg:text-6xl/[1.1] capitalize mx-auto w-full">Discover More</h2>
 

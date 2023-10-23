@@ -1,0 +1,39 @@
+---
+import { Image } from "astro:assets";
+import BaseLayout from "../layouts/BaseLayout.astro";
+const pageTitle = "About Us";
+---
+
+
+
+<BaseLayout pageTitle={pageTitle}>
+
+  <section class="section">
+    <div class="container flex flex-col">
+      <div class="banner relative grid md:grid-cols-2 gap-10 items-center">
+        <div>
+          <h3 class="pretitle ">{pageTitle}</h3>
+          
+          <div class="h-96 w-96 ">
+            <Image
+              class='h-full w-full rounded-md object-contain' 
+              src='/images/about-us.jpg'
+              alt='about us'
+              width={300}
+              height={300}
+              loading='lazy'
+              transition:name="About us"
+            />
+          </div>
+        </div>
+
+        <p class="text">Not your everyday web dev shop but a partner that will help your business grow with modern tools more than you thought it's possible.</p>
+
+
+
+      </div>
+    </div>
+
+  </section>
+  
+</BaseLayout>

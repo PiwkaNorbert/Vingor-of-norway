@@ -1,0 +1,38 @@
+---
+
+
+type Props = {
+ album: {
+   title: string;
+   artist: string;
+   image: string;
+   link: string;
+ },
+  idx: number;
+};
+ 
+ const { album, idx } = Astro.props;
+ const { title, artist, image, link } = album;
+
+---
+
+<div class="flex flex-col w-full" aria-label={`Music Card ${idx}`} >
+  <a href={link} target="_blank" class="text-black hover:text-pink-500" rel="noopener noreferrer" aria-label={`Music Card ${idx} Link`}
+    ><div
+      class="shadow-md hover:shadow-lg w-full     "
+      data-astro-transition-scope="astro-2jhrfvd3-1"
+    >
+      <img
+        class="  w-full h-full shrink-0 grow-0 block object-fit overflow-hidden"
+        src={image}
+        alt={title}
+        width="200"
+        height="200"
+        loading="lazy"
+        aria-hidden="true"
+      />
+    </div>
+    <p class="pt-4 font-semibold uppercase" aria-label={title} >{title}</p>
+    <p class="pt-1 text-gray-700" aria-label={artist} >{artist}</p>
+  </a>
+</div>

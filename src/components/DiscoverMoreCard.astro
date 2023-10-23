@@ -1,5 +1,6 @@
 ---
 // import { Image } from "astro:assets";
+import { Image } from "astro:assets";
 import { type CollectionEntry } from "astro:content";
 
 type Props = {
@@ -7,40 +8,32 @@ type Props = {
 };
 
 const { card } = Astro.props;
-const { image, description, title, tag, link } = card.data;
-
-console.log(Astro.props);
+const { image, description, title, link } = card.data;
+console.log(title);
 
 
 ---
 
-<article class="post-card border-2 border-gray-500/20 overflow-hidden rounded-md shadow-lg flex flex-col items-start gap-2">
-    <div class="meta">
-      <img src={image} alt={image ?? "image"} loading="lazy" />
+<article class="post-card max-w-[400px] border-gray-500/20 overflow-hidden group/discover flex flex-col items-start ">
+  <a href={link} >
+    <div class="meta shadow-md hover:shadow-lg w-full grid">
+      <Image src={image.src} alt={image.alt} transition:name={title} width={400} height={400} />
     </div>
-    <div class="px-4 pb-6 flex post-card-content text-gray-700">
-      
-      <h3 class="font-bold text-sm text-gray-700/70">{tag}</h3>
-      <h2 class="font-bold text-md ">{title}</h2>
+    <div class=" pb-6  post-card-content text-gray-700 grid">
+      <h2 class="font-bold pt-4 text-md ">{title}</h2>
+      <!-- <h3 class="font-bold pt-1 text-sm text-gray-700/70">{tag}</h3> -->
       <p class="text-gray-600 line-clamp-3">{description}</p>
-      <a href={`/posts/${link}`} class="underline-offset-2 underline hover:text-opacity-50 ">Read More</a>
+      <div class="underline-offset-2 cursor-pointer pointer-events-auto group-hover/discover:text-pink-500 underline hover:text-opacity-50 ">Read More</div>
     </div>
+  </a>
 </article>
 
 <style>
   .post-card {
-  flex: 1 1 330px;
-  max-width: 400px;
-
-  > div {
-    display: grid;
-    gap: var(--size-1);
+    flex: 1 1 330px;
+  } 
+  .post-card-content > *:not(:first-child) {
+    padding-top: .5em;
   }
-}
-/* css 2023 give a padding to with em to each element appart from the top one */
-.post-card-content > *:not(:first-child) {
-  padding-top: .5em;
-}
-
 
 </style>
