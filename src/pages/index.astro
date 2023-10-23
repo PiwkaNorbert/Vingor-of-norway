@@ -12,16 +12,16 @@
 <BaseLayout pageTitle={pageTitle}>
 
   <section class="section">
-    <div class="container  flex flex-col">
-      <div class="banner relative grid md:grid-cols-2  items-center">
+    <div class="container  flex flex-col sm:gap-10 ">
+      <div class="banner relative grid md:grid-cols-2 justify-center   max-w-[400px] sm:max-w-full mx-auto  items-center">
         <div class="w-full place-self-start">
           <h3 class="pretitle">Vingor of norway</h3>
-          <!-- <h1 class="mb-10 text-gray-700  text-4xl/[1.1] font-semibold md:text-5xl/[1.1] lg:text-6xl/[1.1]">Experience the<br><mark>Warmth and Comfort</mark></h1> -->
+          <h1 class="mb-10 text-gray-700  text-4xl/[1.1] font-semibold md:text-5xl/[1.1] lg:text-6xl/[1.1]">Experience the<br><mark>Warmth and Comfort</mark></h1>
           <p class="text">Indulge in the luxurious warmth and comfort of our premium wool blankets and products, crafted with the finest natural fibers. Experience the timeless elegance of wool while embracing sustainable, eco-friendly living. Elevate your cozy moments with our high-quality wool offerings.</p>
           <a class="button" href="https://www.vingtor.no/">Buy Now</a>
         </div>
 
-				<div class="w-full h-[600px] ">
+				<div class="w-full h-[600px] py-20 sm:py-0">
 					<div
 						class="w-full h-full flex relative "
 						data-slides
@@ -46,15 +46,15 @@
 
       </div>
 			<!-- <section: discover> -->
-				<div class="grid justify-center md:justify-center gap-10 items-center">
-					<h2 class="text-4xl/[1.1] text-center text-gray-700 font-semibold md:text-5xl/[1.1] lg:text-6xl/[1.1] capitalize mx-auto w-full">Discover More</h2>
+			<div class="grid justify-center md:justify-center gap-10 items-center">
+				<h2 class="text-4xl/[1.1] text-center text-gray-700 font-semibold md:text-5xl/[1.1] lg:text-6xl/[1.1] capitalize mx-auto w-full">Discover More</h2>
 
-					<div class="grid grid-cols-1 sm:grid-col-2 mx-auto md:mx-0 md:grid-cols-3 md:justify-between gap-8">
-						{discoverMoreData.map((card)=> <DiscoverMoreCard card={card} />)}
-					</div>
-
-
+				<div class="grid grid-cols-1 sm:grid-col-2 mx-auto md:mx-0 md:grid-cols-3 md:justify-between gap-8">
+					{discoverMoreData.map((card)=> <DiscoverMoreCard card={card} />)}
 				</div>
+
+
+			</div>
 
 
 			

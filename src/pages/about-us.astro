@@ -11,25 +11,33 @@ const pageTitle = "About Us";
   <section class="section">
     <div class="container flex flex-col">
       <div class="banner relative grid md:grid-cols-2 gap-10 items-center">
-        <div>
+        <div class="place-self-start w-full h-full">
           <h3 class="pretitle ">{pageTitle}</h3>
           
-          <div class="h-96 w-96 ">
+          <div class="h-full w-full  ">
             <Image
-              class='h-full w-full rounded-md object-contain' 
+              class='rounded-md object-cover' 
               src='/images/about-us.jpg'
               alt='about us'
-              width={300}
-              height={300}
+              width={500}
+              height={500}
               loading='lazy'
               transition:name="About us"
             />
           </div>
         </div>
+        <div class="text flex flex-col gap-4 w-full">
+          <p>We are a small, ffamily-run business located in Nordre Follo Municipality, driven by a distinct vision: creating high quality products inspired by Norse mythology, our local heritage, and cherished traditions.
+          </p>
+          <p>
+            We believe it is important to continue our value base and our history is "woven" naturally into the products.
+          </p>
+          <p>Our logo features two wise ravens, Hugin and Munin. In Norse mythology, they symbolize 'Thought' and 'Memory.', and every morning Hugin and Munin flew out into the world. The ravens are symbols of Odin's intellectual power, while also being his personal reporters. Every evening they return to their master, sit one on each shoulder and whisper in Odin's ears what they have seen and heard. A news agency before the days of the internet!</p>
+          
+        </div>
 
-        <p class="text">Not your everyday web dev shop but a partner that will help your business grow with modern tools more than you thought it's possible.</p>
 
-
+        The trademark Vingtor of Norway is a registered trademark owned and administered by Grafikk og Musikk AS.
 
       </div>
     </div>
