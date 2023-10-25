@@ -1,0 +1,56 @@
+---
+
+const footerLinks = [
+  {
+    name: 'Privacy',
+    link: '/privacy'
+  },
+  {
+    name: 'Terms',
+    link: '/terms',
+  },
+  {
+    name: 'Contact',
+    link: '/contact'
+  },
+  {
+    name: 'Back to top',
+    link: '#'
+  },
+]
+
+---
+
+<style>
+
+footer {
+    display: flex;
+    gap: .5rem;
+  }
+
+  li a {
+    padding: 2.325rem 1.0333rem;
+    text-transform: capitalize;
+    color: var(--color-primary);
+    transition: color .3s ease-in-out;
+
+}
+
+  li a:hover{
+    color: var(--color-text);
+  }
+</style>
+<footer>
+    <div class="container  ">
+        <div class="pt-20  flex justify-between items-center gap-4">
+            <div class="px-4 py-8">
+
+                &copy; 2023 by Norbert Piwka
+            </div>
+            <div class=" flex justify-end ">
+            {footerLinks.map(({link, name})=> <a class="px-4 py-8" href={link}>{ name }</a>)}
+            </div>
+        </div>
+    </div>
+</footer>
+

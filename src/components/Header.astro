@@ -43,16 +43,8 @@ const headerLinks = [
     link: '/music',
   },
   {
-    name: 'About Us',
-    link: '/about-us'
-  },
-  {
-    name: 'Contact Us',
-    link: '/contact-us'
-  },
-  {
-    name: 'Info',
-    link: '/info'
+    name: 'About',
+    link: '/about'
   }
 ]
 
@@ -60,10 +52,7 @@ const headerLinks = [
 
 <style>
 
-  nav {
-    display: flex;
-    gap: .5rem;
-  }
+
 
   nav a {
     padding: 2.325rem 1.0333rem;
@@ -137,14 +126,15 @@ const headerLinks = [
   }
 
 </style>
-<header>
-  <div class="flex gap-2 flex-col items-center justify-center">
+<header >
+  <div class="flex gap-2 sm:flex-col container sm:items-center sm:justify-center justify-between">
+
     <a class="block max-w-[12.3rem] h-auto py-4 " 
        aria-label="Vingor Home"
        href="/">
       <img src="Vingtor_logo.jpg" alt="Vingtor" />
     </a>
-    <nav class="container flex items-center justify-center">
+    <nav class="container sm:flex hidden gap-2 items-center justify-center">
       {headerLinks.map((link)=>
          link.subLinks ? 
         <div class="dropdown">
@@ -157,6 +147,19 @@ const headerLinks = [
       )}
     
     </nav>
+
+    <button class="px-4 py-4" id="burger">
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round"  stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+      </svg>
+    </button>
   </div>
+
 </header>
 
+<script>
+  const burger = document.getElementById('burger')
+  const sideMenu = document.querySelector('aside')
+  burger.addEventListener('click', ()=>{
+    nav.classList.toggle('hidden')
+  })

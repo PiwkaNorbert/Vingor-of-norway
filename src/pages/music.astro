@@ -28,7 +28,7 @@ export const musicLibrary = [
     <div class="container flex flex-col">
       <!-- make two cards with view transition that on click go to the coresponding songs -->
       <h3 class="pretitle ">{pageTitle}</h3>
-      <div class="w-full grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6">
+      <div class="w-full grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
         {musicLibrary.map((album, idx)=> <AlbumCard album={album} idx={idx} />)}
     
       </div>
