@@ -1,4 +1,5 @@
 ---
+import { Image } from "astro:assets";
 import BaseLayout from "../../layouts/BaseLayout.astro";
 const pageTitle = "Norwegian Wool";
 ---
@@ -9,14 +10,30 @@ const pageTitle = "Norwegian Wool";
 
   <section class="section">
     <div class="container flex flex-col">
-      <!-- make two cards with view transition that on click go to the coresponding songs -->
       <h3 class="pretitle">{pageTitle}</h3>
+      <div class="banner relative grid md:grid-cols-2 gap-10 items-center">
+
+      <!-- make two cards with view transition that on click go to the coresponding songs -->
+      <div class="h-full w-full  ">
+
+        <Image
+          class='object-cover' 
+          src='https://43d9bd2464.clvaw-cdnwnd.com/a47e3bf7f2ff8343813e8c64b26c858d/200000066-2d16a2d16c/image-crop-200000004.webp?ph=43d9bd2464'
+          alt='Nor-wool'
+          width={1200}
+          height={800}
+          loading='lazy'
+          transition:name="Certified Partner"
+        />
+      </div>
+
       <h1 class="title">Jamstack <br> development <br> agency</h1>
       <p class="text">Not your everyday web dev shop but a partner that will help your business grow with modern tools more than you thought it's possible.</p>
       <a class="button" href="https://bejamas.io/about/#team">Meet the Team</a>
       </div>
 
     </div>
+  </div>
   </section>
   
 </BaseLayout>

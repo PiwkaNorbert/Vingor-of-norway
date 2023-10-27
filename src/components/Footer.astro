@@ -43,10 +43,15 @@ footer {
 <footer>
     <div class="container  ">
         <div class="pt-20  flex justify-between items-center gap-4">
-            <div class="px-4 py-8">
+          <div>
+            <h3 class="pretitle">Vingor of norway</h3>
 
-                &copy; 2023 by Norbert Piwka
+            <div class="px-4 py-8">
+              
+              &copy; 2023 by Norbert Piwka
             </div>
+         
+          </div>
             <div class=" flex justify-end ">
             {footerLinks.map(({link, name})=> <a class="px-4 py-8" href={link}>{ name }</a>)}
             </div>

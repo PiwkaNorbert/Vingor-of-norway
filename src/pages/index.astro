@@ -107,7 +107,6 @@ const slides = document.querySelector<HTMLDivElement>("[data-slides]");
   };
 
   const observer = new IntersectionObserver(entries => {
-		console.log(entries[0].isIntersecting);
     if (entries[0].isIntersecting) {
       startInterval();
     } else {

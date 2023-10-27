@@ -7,8 +7,6 @@ const { href, class: className, ...props } = Astro.props;
 
 const { pathname } = Astro.url;
 const isActive = href === pathname || href === pathname.replace(/\/$/, '');
-console.log(pathname, href, isActive);
-
 
 ---
 
@@ -19,7 +17,7 @@ console.log(pathname, href, isActive);
 	a {
 		display: flex;
 		text-decoration: none;
-		justify-content: center;
+		justify-content: start;
 
 	}
 	a.active {
@@ -28,8 +26,9 @@ console.log(pathname, href, isActive);
 		text-underline-offset: 0.5em;
 	}
 	a:hover {
-		text-decoration: underline;
+		/* text-decoration: underline; */
 		text-underline-offset: 0.5em;
+		background-color: var(--color-bg-2);
 
 	}
 </style>

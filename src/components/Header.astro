@@ -14,7 +14,25 @@ const headerLinks = [
   },
   {
     name: 'For Buisness',
-    link: '/for-buisness'
+    link: '/for-buisness',
+    subLinks: [
+      {
+        name: 'Inspiration',
+        link: '/nor-wool'
+      },
+      {
+        name: 'History',
+        link: '/nor-wool'
+      },
+      {
+        name: 'Info',
+        link: '/nor-wool'
+      },
+      {
+        name: 'Norwegian Wool',
+        link: '/nor-wool'
+      }
+    ]
   },
   {
     name: 'Nor-Wool',
@@ -71,7 +89,7 @@ const headerLinks = [
 }
 .dropdown a:first-child{
   display: flex;
-  justify-content: center;
+  /* justify-content: center; */
   align-items: center;
 }
 
@@ -79,12 +97,9 @@ const headerLinks = [
 .dropdown-content {
   display: none;
   position: absolute;
-  top: 75px;
-  z-index: 1;
+  z-index: 10;
   background-color: var(--color-bg);
-  /* add a ncie shadow that is not on the top of the element */
   box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
-  padding: 0 0.5rem;
 }
 
 .arrow-down {
@@ -122,6 +137,7 @@ const headerLinks = [
       nav a{
         padding: 1.5rem .5rem;
       }
+
     
   }
 
@@ -139,7 +155,7 @@ const headerLinks = [
          link.subLinks ? 
         <div class="dropdown">
           <HeaderLink href={link.link} target={link.target}>{link.name} <span class="arrow-down"></span></HeaderLink>
-          <div class="dropdown-content">
+          <div class="dropdown-content top-[4.6rem] xl:top-[6.2rem]  ">
             {link.subLinks.map((subLink)=> <HeaderLink href={subLink.link}>{subLink.name}</HeaderLink>)}
           </div>
         </div>
@@ -148,7 +164,7 @@ const headerLinks = [
     
     </nav>
 
-    <button class="px-4 py-4" id="burger">
+    <button class="px-4 py-4 sm:hidden" id="burger">
       <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
         <path stroke-linecap="round" stroke-linejoin="round"  stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
       </svg>
