@@ -3,9 +3,12 @@
 	import { getCollection } from 'astro:content';
 	import images from "../data/main-page-images.json"
 	import DiscoverMoreCard from '../components/DiscoverMoreCard.astro';
+  import WeOfferCard from '../components/WeOfferCard.astro';
 
   const pageTitle = 'Home';
 	const discoverMoreData = await getCollection('discover-more');
+	const weOfferData = await getCollection('we-offer');
+console.log(weOfferData);
 
 ---
 
@@ -45,20 +48,30 @@
 				</div>
 
       </div>
+			<!-- <section: We offer> -->
+			<section class="grid justify-start md:justify-start gap-10 pb-20 items-center">
+				<h2 class="text-2xl/[1.1]  text-gray-700 font-semibold md:text-4xl/[1.1] lg:text-5xl/[1.1] capitalize mx-auto w-full">We offer</h2>
+
+				<div class="grid grid-cols-1 sm:grid-col-2 md:grid-cols-4 mx-auto md:mx-0 md:justify-between gap-3">
+				{weOfferData.map((offer)=> <WeOfferCard offer={offer} />)}
+
+				</div>
+			</section>
+			<!-- </section: We offer> -->
+
+
 			<!-- <section: discover> -->
-			<div class="grid justify-center md:justify-center gap-10 items-center">
-				<h2 class="text-4xl/[1.1] text-center text-gray-700 font-semibold md:text-5xl/[1.1] lg:text-6xl/[1.1] capitalize mx-auto w-full">Discover More</h2>
+			<section class="grid justify-center  md:justify-normal gap-10 pb-20 items-center">
+				<h2 class="text-2xl/[1.1]  text-gray-700 font-semibold md:text-4xl/[1.1] lg:text-5xl/[1.1] capitalize mx-auto w-full">Discover More</h2>
 
 				<div class="grid grid-cols-1 sm:grid-col-2 mx-auto md:mx-0 md:grid-cols-3 md:justify-between gap-8">
 					{discoverMoreData.map((card)=> <DiscoverMoreCard card={card} />)}
 				</div>
-
-
-			</div>
-
-
-			
+			</section>
 			<!-- </section: discover> -->
+
+
+
     </div>
   </section>
   
@@ -119,6 +132,7 @@ const slides = document.querySelector<HTMLDivElement>("[data-slides]");
   slides.addEventListener("mouseover", stopInterval);
   slides.addEventListener("mouseout", startInterval);
 
+	
 }
 
 </script>

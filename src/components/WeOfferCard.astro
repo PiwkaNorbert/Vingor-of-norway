@@ -1,0 +1,33 @@
+---
+import { Image } from 'astro:assets';
+import type { CollectionEntry } from 'astro:content';
+
+  type Props = {
+    offer: CollectionEntry<"we-offer">
+  }
+ const { offer } = Astro.props;
+ 
+ const { title, image, link } = offer.data;
+ 
+
+---
+
+<div class="flex flex-col w-full" aria-label={`Product Card ${offer.slug}`} >
+  <a href={link}  target="_blank" class="text-black hover:text-pink-500" rel="noopener noreferrer" aria-label={`Product Card ${offer.slug} Link`}
+    ><div
+      class="shadow-md hover:shadow-lg w-full h-full    "
+    >
+    
+      <Image
+        class="  h-full shrink-0 grow-0 block object-fit overflow-hidden"
+        src={image.src}
+        alt={image.alt}
+        width="400"
+        height="400"
+        loading="lazy"
+        aria-hidden="true"
+      />
+    </div>
+    <p class="pt-4 font-semibold uppercase" aria-label={title} >{title}</p>
+  </a>
+</div>

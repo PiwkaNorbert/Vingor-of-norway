@@ -3,7 +3,9 @@ export default {
   content: ["./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx}"],
   theme: {
     extend: {
-      color: {},
+      width: {
+        custom: "min(90vw, 1400px)",
+      },
     },
   },
   plugins: [],
